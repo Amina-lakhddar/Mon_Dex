@@ -9,31 +9,31 @@
 <body class="bg-ground font-body text-ink">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <header class="bg-green-500 text-white">
+  <header class="bg-orange-500 text-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-8 py-5">
       <div class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand">
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600">
           <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><circle cx="12" cy="12" r="3"></circle></svg>
         </div>
         <div>
           <p class="font-display text-2xl font-extrabold leading-none">Mon Dex</p>
-          <p class="text-sm text-gray-300">[Votre univers] · <span id="creature-count">6</span> créatures</p>
+          <p class="text-sm text-gray-300">Pokédex · <span id="creature-count">6</span> créatures</p>
         </div>
       </div>
       <nav aria-label="Navigation principale" class="flex flex-wrap gap-2">
-        <a href="#grid" class="rounded-full bg-white/10 px-4 py-2">Créatures</a>
-        <a href="#team" class="rounded-full bg-white/10 px-4 py-2">Mon équipe · <span id="team-count">0</span>/6</a>
-        <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink">+ Nouvelle créature</a>
+        <a href="#grid" class="rounded-full bg-white/20 px-4 py-2">Créatures</a>
+        <a href="#team" class="rounded-full bg-white/20 px-4 py-2">Mon équipe · <span id="team-count">0</span>/6</a>
+        <a href="#create" class="rounded-full bg-white/20 px-4 py-2 font-bold text-white">+ Nouvelle créature</a>
       </nav>
     </div>
   </header>
 
-  <main class="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
+  <main class="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8 bg-orange-500/50">
 
     <!-- ===================== RECHERCHE ET FILTRES ===================== -->
-    <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
+    <section aria-label="Recherche et filtres" class="flex flex-col gap-4 " >
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h1 class="font-display text-4xl font-extrabold">Trouver une créature</h1>
+        <h1 class="font-display text-4xl font-extrabold text-orange-700">Trouver une créature</h1>
         <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
           Rechercher par nom
           <input id="search" type="search" placeholder="ex. Mossling" class="field font-normal">
