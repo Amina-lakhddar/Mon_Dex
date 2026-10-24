@@ -63,6 +63,22 @@ rechercher();
 
 // -------------------------------------------------------------
 // 4. FILTRE
+function filter(){
+  let type_creature=document.getElementById("filters");
+    type_creature.addEventListener("click", function (event) {
+      if (event.target.tagName === "BUTTON") {
+          if(event.target.textContent==="Tous"){
+            afficher(creatures)
+          }else{
+            let resultat_type=creatures.filter(function(creature){
+              return creature.type===event.target.textContent;
+            })
+            afficher(resultat_type)
+          }
+      }
+    });
+}
+filter();
 // Les boutons de type n'affichent que les créatures de ce type ;
 // « Tous » réinitialise le filtre.
 // La recherche et le filtre fonctionnent ENSEMBLE.
