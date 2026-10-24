@@ -9,7 +9,7 @@
 // -------------------------------------------------------------
 // 1. AFFICHAGE
 let section_article=document.getElementById("grid");
-function afficher(){
+function afficher(creatures){
     section_article.innerHTML=creatures.map(function(creature){
         return`<article class="flex flex-col gap-3  h-100 rounded-card w-[80%] bg-white border-2 border-orange-500 p-3 pb-4 transition-transform duration-300 hover:-translate-y-1 lg:w-[30%]">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -26,7 +26,7 @@ function afficher(){
         
     })
 };
-afficher();
+afficher(creatures);
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
@@ -41,6 +41,21 @@ afficher();
 
 // -------------------------------------------------------------
 // 3. RECHERCHE
+function rechercher() {
+    let search = document.querySelector("#search");
+
+    search.addEventListener("input", function () {
+        let valeur = search.value.toLowerCase();
+
+        let resultat = creatures.filter(function (creature) {
+            return creature.name.toLowerCase().includes(valeur);
+        });
+
+        afficher(resultat);
+    });
+}
+
+rechercher();
 // La liste se met à jour pendant la saisie d'un nom
 // (sans tenir compte des majuscules).
 // -------------------------------------------------------------
