@@ -100,3 +100,24 @@
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
+
+.success {
+    border-color: green;
+}
+
+.error {
+    border-color: red;
+}
+
+#message {
+    display: block;
+    margin-top: 5px;
+}
+
+.message-success {
+    color: green;
+}
+
+.message-error {
+    color: red;
+}
