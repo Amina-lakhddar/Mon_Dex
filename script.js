@@ -115,7 +115,8 @@ function filter(){
     type_creature.addEventListener("click", function (event) {
       if (event.target.tagName === "BUTTON") {
           if(event.target.textContent==="Tous"){
-            afficher(creatures)
+            afficher(creatures);
+            detail();
           }else{
             let resultat_type=creatures.filter(function(creature){
               return creature.type===event.target.textContent;
