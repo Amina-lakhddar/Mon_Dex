@@ -381,7 +381,8 @@ function ajouterCreature() {
   formulaire.addEventListener("submit",function(event){
     event.preventDefault();
     ajouterCreature();
-    afficher(creatures)
+    afficher(creatures);
+    detail();
   })
 }
 ajouter();
