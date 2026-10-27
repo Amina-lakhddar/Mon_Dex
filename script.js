@@ -5,7 +5,6 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
-
 // -------------------------------------------------------------
 // 1. AFFICHAGE
 let section_article=document.getElementById("grid");
@@ -21,12 +20,37 @@ function afficher(creatures){
             <span class="rounded-full bg-orange-500 px-3 py-1 text-sm font-bold text-white">${creature.type}</span>
           </div>
           <p class="text-transition-transform duration-300 hover:-translate-y-1sm text-muted">${creature.level}</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+          <button
+              type="button"
+              class="btn-outline"
+              data-action="ajouter"
+              data-id="${creature.id}">
+              Ajouter à l'équipe
+          </button>
         </article>`
         
     })
 };
 afficher(creatures);
+
+section_article.addEventListener("click", function (event) {
+
+    let bouton = event.target.closest("button[data-action='ajouter']");
+
+    if (!bouton) {
+        return;
+    }
+
+    let id = bouton.dataset.id;
+
+    let creature = creatures.find(function (element) {
+        return String(element.id) === id;
+    });
+
+    if (creature) {
+        ajouterEquipe(creature);
+    }
+});
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
@@ -37,6 +61,7 @@ afficher(creatures);
 function detail(){
   // let liste_article =document.getElementById("grid");
   // console.log(liste_article.textContent);
+  
   let panneau_detail=document.getElementById("detail");
   let articles=document.querySelectorAll("article");
   
@@ -393,13 +418,96 @@ ajouter();
 // -------------------------------------------------------------
 
 
+
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE
 // Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
 // écouteur sur la grille et UN SEUL sur l'équipe (délégation).
 // -------------------------------------------------------------
+let equipe = [];
+
+let section_team = document.querySelector("#team");
+let compteur = document.querySelector("#compteur");
+let message_regles = document.querySelector("#message-regles");
+let emplacements = document.querySelector("#emplacements");
+
+function ajouterEquipe(creature) {
+
+    if (equipe.some(function (element) {
+        return element.id === creature.id;
+    })) {
+        message_regles.textContent = "Cette créature est déjà dans l'équipe.";
+        return;
+    }
+
+    if (equipe.length >= 6) {
+        message_regles.textContent = "L'équipe est complète ! Maximum 6 créatures.";
+        return;
+    }
+
+    equipe.push(creature);
+
+    afficherEquipe();
+}
 
 
+
+function afficherEquipe() {
+
+    compteur.textContent = equipe.length + "/6";
+
+    emplacements.innerHTML = "";
+
+    for (let i = 0; i < 6; i++) {
+
+        if (i < equipe.length) {
+
+            let creature = equipe[i];
+
+            emplacements.innerHTML += `
+                <div class="flex flex-col items-center gap-1 rounded-xl border border-orange-300 p-2">
+                    <img src="${creature.image}"
+                         alt="${creature.name}"
+                         class="h-12 w-12 object-contain">
+
+                    <span class="text-sm font-bold">${creature.name}</span>
+                    <button
+                        type="button"
+                        data-action="retirer"
+                        data-id="${creature.id}"
+                        class="btn-outline">
+                        Retirer
+                    </button>
+                </div>
+            `;
+
+        } else {
+
+            emplacements.innerHTML += `
+                <div class="flex h-20 items-center justify-center rounded-xl border-2 border-dashed border-orange-300">
+                    +
+                </div>
+            `;
+        }
+    }
+
+    message_regles.textContent =
+        "Maximum 6 créatures. Chaque créature ne peut être ajoutée qu'une seule fois.";
+}
+
+afficherEquipe();
+
+let bouton_detail = document.querySelector("#detail-add");
+
+bouton_detail.addEventListener("click", function () {
+
+    if (creatureSelectionnee === null) {
+        message_regles.textContent = "Sélectionne d'abord une créature.";
+        return;
+    }
+
+    ajouterEquipe(creatureSelectionnee);
+});
 // -------------------------------------------------------------
 // 7. RÈGLES DE L'ÉQUIPE
 // 6 créatures au maximum, pas de doublon, un message clair quand
