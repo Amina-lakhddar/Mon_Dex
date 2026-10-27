@@ -1,8 +1,6 @@
 # Mon Dex — dépôt de départ
 
-Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de votre choix : Pokémon, Digimon ou Yu-Gi-Oh!.
-
-Lisez le brief complet avant de commencer.
+Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de  Pokémon.
 
 ## Installation
 
@@ -37,8 +35,14 @@ Puis committez `dist/output.css` : GitHub Pages ne lance pas Tailwind pour vous.
 
 ## À compléter par vous
 
-- **Univers choisi :** [Pokémon / Digimon / Yu-Gi-Oh!]
-- **Lien GitHub Pages :** [lien]
-- **Sources des images :** [liens]
-- **Tests des expressions régulières :** [collez ici vos tests console : 2 valeurs valides et 2 invalides par expression]
+- **Univers choisi :** Pokémon
+- **Lien GitHub Pages :** https://amina-lakhddar.github.io/Mon_Dex/
+- **Sources des images :** https://www.pokebip.com/pokedex
+- **Tests des expressions régulières :** 
+- Valide : 
+    regexId.test("#001") 
+    regexNom.test("Amina") 
+- Invalide :
+    regexId.test("1234")
+    regexNom.test("a")
 - **Bonus réalisés :** [liste]
