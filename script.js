@@ -497,17 +497,17 @@ function afficherEquipe() {
 
 afficherEquipe();
 
-let bouton_detail = document.querySelector("#detail-add");
+// let bouton_detail = document.querySelector("#detail-add");
 
-bouton_detail.addEventListener("click", function () {
+// bouton_detail.addEventListener("click", function () {
 
-    if (creatureSelectionnee === null) {
-        message_regles.textContent = "Sélectionne d'abord une créature.";
-        return;
-    }
+//     if (creatureSelectionnee === null) {
+//         message_regles.textContent = "Sélectionne d'abord une créature.";
+//         return;
+//     }
 
-    ajouterEquipe(creatureSelectionnee);
-});
+//     ajouterEquipe(creatureSelectionnee);
+// });
 // -------------------------------------------------------------
 // 7. RÈGLES DE L'ÉQUIPE
 // 6 créatures au maximum, pas de doublon, un message clair quand
